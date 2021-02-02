@@ -9,14 +9,23 @@ public:
     void removeMin();
 private:
     std::list<E>L;
-    C isLess;
+    C Less;
+    C Greator;
 };
 
 template <typename E>
-class isLess {
+class Less {
 public:
     bool operator()(const E&p, const E& q){
         return p < q;
+    }
+};
+
+template <typename E>
+class Greater{
+public:
+    bool operator()(const E&p, const E& q){
+        return p > q;
     }
 };
 
@@ -32,7 +41,7 @@ template <typename E, typename C>
 void ListPriorityQueue<E,C>::insert(const E& e){
     typename std::list<E>::iterator p;
     p = L.begin();
-    while( p!= L.end() && !isLess(e,*p)) ++p;
+    while( p!= L.end() && !Less(e,*p)) ++p;
     L.insert(p,e);
 }
 
