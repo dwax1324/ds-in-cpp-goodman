@@ -3,10 +3,12 @@
 using namespace std;
 
 template <typename E>
+
 class SNode{
 public:
     E elem;
     SNode<E>* next;
+    
     // friend class SLinkedList<E>;  // provide SLinekedList access
 };
 
